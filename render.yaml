@@ -1,19 +1,12 @@
 # Render Blueprint for the jsona share-server (Docker + persistent disk).
 #
-# Usage:
-#   1. Push this repo to GitHub (monorepo: root contains packages/ + server/).
-#   2. Render Dashboard -> New -> Blueprint -> connect the GitHub repo.
-#   3. Render picks up this file; set the missing env vars below.
-#
-# NOTE: `repo` is filled in automatically by Render when you connect a repo.
-# For local validation only the structure matters.
+# Render dashboard -> New -> Blueprint -> connect this repo. Render reads this
+# file at the repo root, builds server/Dockerfile, and creates a web service.
 
 services:
   - type: web
     name: jsona-share
     runtime: docker
-    # e.g. https://github.com/your-name/jsona
-    repo: https://github.com/CHANGE_ME/jsona
     rootDir: server
     dockerfilePath: ./Dockerfile
     plan: free

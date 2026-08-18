@@ -1,18 +1,31 @@
+# ---- build stage: full deps + tsc ----
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+# Install full deps (incl. typescript) with lockfile for reproducibility.
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY tsconfig.json ./
+COPY src ./src
+
+RUN npm run build
+
+# ---- runtime stage: prod deps only + dist ----
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Install deps (pure JS, no native build needed).
-COPY package.json ./
-RUN npm install --omit=dev || npm install
+ENV NODE_ENV=production
 
-COPY tsconfig.json ./
-COPY src ./src
-COPY .env.example ./.env.example
+# Prod deps only, exact versions from lockfile.
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
-RUN npm run build
+COPY --from=build /app/dist ./dist
 
-ENV DB_PATH=/app/data/share.json
+ENV DB_PATH=/app/data/share.db
 ENV PORT=8787
 ENV PUBLIC_URL=http://localhost:8787
 ENV SESSION_SECRET=change-me
