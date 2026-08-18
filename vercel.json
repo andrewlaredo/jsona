@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "cd packages/web && ../../node_modules/.bin/vite build",
+  "buildCommand": "pnpm --filter jsona-core build && cd packages/web && ../../node_modules/.bin/vite build",
   "outputDirectory": "packages/web/dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
