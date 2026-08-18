@@ -1,0 +1,38 @@
+{
+  "name": "jsona-view",
+  "version": "0.1.0",
+  "description": "jsona CLI - jq-style query and format conversion for JSON/YAML/TOML/CSV (local-first, MIT)",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "jsona": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "jsona-core": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "commander": "^12.1.0",
+    "express": "^4.22.2",
+    "jose": "^6.2.8",
+    "papaparse": "^5.4.1",
+    "ws": "^8.21.3",
+    "yaml": "^2.6.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.1",
+    "@types/papaparse": "^5.3.15",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.2"
+  }
+}

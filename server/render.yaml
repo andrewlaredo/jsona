@@ -1,0 +1,50 @@
+# Render Blueprint for the jsona share-server (Docker + persistent disk).
+#
+# Usage:
+#   1. Push this repo to GitHub (monorepo: root contains packages/ + server/).
+#   2. Render Dashboard -> New -> Blueprint -> connect the GitHub repo.
+#   3. Render picks up this file; set the missing env vars below.
+#
+# NOTE: `repo` is filled in automatically by Render when you connect a repo.
+# For local validation only the structure matters.
+
+services:
+  - type: web
+    name: jsona-share
+    runtime: docker
+    # e.g. https://github.com/your-name/jsona
+    repo: https://github.com/CHANGE_ME/jsona
+    rootDir: server
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    disk:
+      name: jsona-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: 8787
+      - key: PUBLIC_URL
+        sync: false
+      - key: PUBLIC_ORIGINS
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BYOK_MASTER_KEY
+        generateValue: true
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: GITHUB_ALLOWED_USERS
+        sync: false
+      - key: PRO_LOGINS
+        sync: false
+      - key: TEAM_LOGINS
+        sync: false
+      - key: TRUST_PROXY
+        value: "1"
+      - key: DB_PATH
+        value: /app/data/share.db

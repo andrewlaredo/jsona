@@ -1,0 +1,35 @@
+{
+  "name": "jsona-core",
+  "version": "0.1.0",
+  "description": "jsona shared parsing engine: multi-format -> unified AST with source offsets",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "json5": "^2.2.3",
+    "jsonc-parser": "3.2.0",
+    "papaparse": "^5.4.1",
+    "toml": "^3.0.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/papaparse": "^5.3.15"
+  }
+}

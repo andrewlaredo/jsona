@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0d1117"/>
+  <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#39c5cf" stroke-width="2" opacity="0.5"/>
+  <g fill="none" stroke="#39c5cf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 18 v28 a8 8 0 0 0 16 0"/>
+  </g>
+  <text x="40" y="42" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#e6edf3">a</text>
+</svg>

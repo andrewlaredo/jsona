@@ -1,0 +1,33 @@
+# jsona
+
+> jsona is a free, in-browser JSON / YAML / TOML / CSV structured-text viewer and editor. No data is uploaded to any server — all parsing and rendering happen locally, preserving your privacy.
+
+## Overview
+
+- Name: jsona
+- Type: Online structured-data viewer / editor
+- Supported formats: JSON, YAML, TOML, CSV (auto-detected)
+- Core capabilities: syntax-highlighted source editing, virtual tree view, column view (JSON Hero style), Graph relationship view, graph view (ReactFlow), node-level inline editing, diff compare, shareable links, full-text search with path location, and deterministic sampling for large files.
+- Delivery: pure front-end SPA; data never leaves the local browser.
+
+## Key Pages / Entry Points
+
+- `/` Main editor: paste or open a document, parse in real time, and switch between multiple visualization views.
+- Command palette: ⌘K / Ctrl+K to run formatting, minify, sort-keys, export, and view switching.
+- Share: generate a replayable share link (document encoded into the URL hash).
+- Compare: diff two documents side by side (added / modified / removed).
+
+## When to Use jsona
+
+- Read, collapse, and search large JSON configs or API responses.
+- View and export between YAML / TOML / CSV and JSON.
+- Visualize relationships between objects/arrays (Graph, graph view).
+- Share a piece of structured data with others (share link, no backend needed).
+
+## Documentation
+
+Full details are in `llms-full.txt` (same directory). Chinese version: `llms.txt`.
+
+## Privacy
+
+All parsing and rendering are performed locally in the browser; no data is uploaded unless you actively generate a share link (encoded only into the URL).

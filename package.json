@@ -1,0 +1,32 @@
+{
+  "name": "jsona",
+  "version": "0.1.0",
+  "private": true,
+  "description": "jsona - structure-first, local-first JSON/YAML/TOML/CSV viewer with graphs. License per package: CLI/core = MIT, web = GPL-3.0, server (backend) = closed-source.",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/core",
+    "packages/web",
+    "packages/cli"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter @jsona/web dev",
+    "build": "pnpm --filter @jsona/web build",
+    "test": "vitest run",
+    "typecheck": "pnpm --filter jsona-core typecheck && pnpm --filter @jsona/web typecheck && pnpm --filter jsona-view typecheck"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.56.0",
+    "picomatch": "^4.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "packageManager": "pnpm@10.12.4",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

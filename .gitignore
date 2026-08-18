@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+*.err
+*.out
+.DS_Store
+
+# Chrome debug profile (local debugging artifact)
+.chrome-debug-profile/
+
+# Build caches
+*.tsbuildinfo
+
+# Test / temp scratch files
+_tmp_*
+*.tmp
+.tmp-*
+_t.*
+*.devlog.txt
+*.devlog.err
+
+# Local editor/MCP tooling config
+.codebuddy/
+
+# Local server data (DB should never be committed)
+server/data/

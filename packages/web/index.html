@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Sync <html lang> with stored locale before first paint (SPA has no per-language HTML).
+      try { var l = localStorage.getItem('jsona.locale'); if (l === 'en' || l === 'zh-CN') document.documentElement.setAttribute('lang', l); } catch (e) {}
+    </script>
+    <title>jsona - 结构化文本查看器 | JSON / YAML / TOML / CSV 在线编辑</title>
+    <meta name="description" content="jsona 是一个免费、浏览器内运行的 JSON / YAML / TOML / CSV 结构化文本查看器与编辑器。支持语法高亮、树视图、列视图、Graph 关系图、节点内联编辑、差异对比与分享链接，数据不出本地浏览器。" />
+    <meta name="keywords" content="json viewer,json editor,yaml viewer,toml viewer,csv viewer,json 查看器,json 格式化,在线 json,结构化数据,jsona" />
+    <meta name="author" content="jsona" />
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.jsona.cn/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://www.jsona.cn/" />
+    <link rel="alternate" hreflang="en" href="https://www.jsona.cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.jsona.cn/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="jsona - 结构化文本查看器" />
+    <meta property="og:description" content="免费、浏览器内运行的 JSON / YAML / TOML / CSV 查看器与编辑器，支持树视图、列视图、Graph、对比与分享。" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="jsona - 结构化文本查看器" />
+    <meta name="twitter:description" content="免费、浏览器内运行的 JSON / YAML / TOML / CSV 查看器与编辑器。" />
+
+    <!-- LLMs / AI crawlers (zh-CN default + en alternate; SPA: UI language switches at runtime) -->
+    <link rel="llms.txt" href="/llms.txt" hreflang="zh-CN" />
+    <link rel="llms.txt" href="/llms-en.txt" hreflang="en" />
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "jsona",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "JSON / YAML / TOML / CSV viewer & editor",
+        "operatingSystem": "Any",
+        "url": "https://www.jsona.cn/",
+        "description": "免费、浏览器内运行的 JSON / YAML / TOML / CSV 结构化文本查看器与编辑器，支持语法高亮、树视图、列视图、Graph、对比与分享，数据不出本地浏览器。",
+        "inLanguage": ["zh-CN", "en"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "JSON / YAML / TOML / CSV 解析与自动识别",
+          "语法高亮源码编辑",
+          "虚拟树视图与搜索定位",
+          "列视图（JSON Hero 风格）内联编辑",
+          "Graph 与图谱（ReactFlow）可视化",
+          "差异对比与分享链接",
+          "暗色 / 亮色主题，中文 / 英文界面"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
