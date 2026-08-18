@@ -24,5 +24,8 @@ _t.*
 # Local editor/MCP tooling config
 .codebuddy/
 
+# Dev-plan doc is local-only; keep it out of git
+开发计划.md
+
 # Local server data (DB should never be committed)
 server/data/
