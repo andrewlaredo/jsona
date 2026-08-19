@@ -237,5 +237,5 @@ npm: jsona-core (解析核心) ──▶ jsona-view (CLI bin: jsona)
 **但 tier 来源目前是 GitHub 登录名白名单**（`PRO_LOGINS` / `TEAM_LOGINS` 环境变量），
 **并非真实支付**——属占位/雏形。
 
-接入真实变现时只需替换 `tierFromAllowList()` 一个函数（改为查订单/订阅表），
+接入真实付费计费时只需替换 `tierFromAllowList()` 一个函数（改为查订单 / 订阅表），
 配额强制逻辑无需改动。前端定价页、支付（Stripe / 微信 / 支付宝）、账单中心为待补环节。

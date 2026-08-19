@@ -16,13 +16,14 @@ The full text of each license is available at:
 - GPL-3.0:    https://www.gnu.org/licenses/gpl-3.0.html
 - Proprietary (server/): see `server/LICENSE`
 
-Commercial / proprietary licensing inquiries for the server backend:
-contact the jsona team.
+Licensing inquiries for the server backend, or to discuss running it under
+different terms, are welcome — contact the jsona team.
 
 ---
 
-Open-source strategy ("open-core"):
+Open-core model:
 The core engine (CLI + libraries) is MIT-licensed so developers can audit,
 self-host, and reuse it freely. The web viewer is GPL-3.0 so derivative web
-products also stay open. The optional share/sync server is closed-source and
-monetized as a hosted service.
+products also stay open. The optional share/sync server is closed-source and is
+offered both as a self-hostable component and as a hosted online service — you
+can use the fully open parts without depending on it at all.
