@@ -504,15 +504,6 @@ export function App() {
           <button className="tool-btn ai" onClick={() => setAiOpen(true)} title={t('topbar.ai')}>
             <Icon name="sparkles" size={15} /> <span className="tb-label">{t('topbar.ai')}</span>
           </button>
-          <a
-            className="tool-btn github-star"
-            href="https://github.com/andrewlaredo/jsona"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="开源 · 数据纯本地零上传 · 在 GitHub 上 Star"
-          >
-            <Icon name="github" size={16} /> <span className="tb-label">GitHub</span>
-          </a>
           <span className="topbar-divider" />
           <button className="icon-btn" title={t('topbar.theme')} onClick={() => setTheme((p) => (p === 'dark' ? 'light' : 'dark'))}>
             <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={16} />
@@ -752,6 +743,8 @@ export function App() {
           <span>{t('status.line')} {cursorLine}, {t('status.col')} {cursorCol}</span>
           <span className="st-sep">·</span>
           <span className="st-fmt">{format === 'auto' ? 'AUTO' : format.toUpperCase()}</span>
+          <span className="st-sep">·</span>
+          <a className="st-link" href="https://github.com/andrewlaredo/jsona" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span className="st-sep">·</span>
           <a className="st-copy" href="https://www.jsona.cn/" target="_blank" rel="noopener noreferrer">© {new Date().getFullYear()} jsona</a>
         </div>
