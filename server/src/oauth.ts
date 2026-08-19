@@ -104,9 +104,16 @@ oauthRouter.get('/callback', async (req, res) => {
     // Persist a lightweight account record (token stored for future API use).
     const tier = tierFromAllowList(user.login) ?? 'free';
     accounts.upsert(user.login, user.avatar_url, user.name, tokenJson.access_token, tier);
+    // Cross-site: the web client lives on a different domain (e.g. www.jsona.cn)
+    // than the share server (share.jsona.cn), so the session cookie MUST be
+    // `sameSite: 'none'` + `secure` to be sent on cross-origin fetch requests
+    // (which also require `credentials: 'include'` on the client). On plain http
+    // (local dev) `secure` is dropped so the cookie still works.
+    const isHttps = PUBLIC_URL.startsWith('https:');
     res.cookie('gh_session', sessionCookieFor(user.login), {
       httpOnly: true,
-      sameSite: 'lax',
+      sameSite: 'none',
+      secure: isHttps,
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
     // Close-page mode: the flow was opened in a popup. Notify the opener and

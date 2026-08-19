@@ -44,7 +44,7 @@ export function useWorkspace() {
   const fetchMe = useCallback(async () => {
     if (!API_BASE) return;
     try {
-      const res = await fetch(`${API_BASE}/api/oauth/me`);
+      const res = await fetch(`${API_BASE}/api/oauth/me`, { credentials: 'include' });
       const json = (await res.json()) as {
         authenticated: boolean;
         login?: string;
