@@ -107,6 +107,8 @@ function Icon({ name, size = 18 }: { name: string; size?: number }) {
       return (<svg {...common}><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" /></svg>);
     case 'globe':
       return (<svg {...common}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" /></svg>);
+    case 'github':
+      return (<svg {...common}><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.7c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" /></svg>);
     case 'check':
       return (<svg {...common}><path d="M20 6 9 17l-5-5" /></svg>);
     case 'x':
@@ -502,6 +504,15 @@ export function App() {
           <button className="tool-btn ai" onClick={() => setAiOpen(true)} title={t('topbar.ai')}>
             <Icon name="sparkles" size={15} /> <span className="tb-label">{t('topbar.ai')}</span>
           </button>
+          <a
+            className="tool-btn github-star"
+            href="https://github.com/andrewlaredo/jsona"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="开源 · 数据纯本地零上传 · 在 GitHub 上 Star"
+          >
+            <Icon name="github" size={16} /> <span className="tb-label">GitHub</span>
+          </a>
           <span className="topbar-divider" />
           <button className="icon-btn" title={t('topbar.theme')} onClick={() => setTheme((p) => (p === 'dark' ? 'light' : 'dark'))}>
             <Icon name={theme === 'dark' ? 'sun' : 'moon'} size={16} />

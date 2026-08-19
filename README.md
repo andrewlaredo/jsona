@@ -45,6 +45,16 @@ jsona mcp     # 启动 MCP server
 
 > 数据默认不出本机。只有短链分享、GitHub 同步、BYOK AI 需要连接你自建的 server；纯离线使用无需任何配置。
 
+## 许可证
+
+本项目采用多许可结构（详见根目录 `LICENSE`）：
+
+- **`packages/core`（`jsona-core`）与 `packages/cli`（`jsona-view`）**：**MIT** 开源。
+- **`packages/web`（Web 查看器）**：**GPL-3.0-or-later** 开源。
+- **`server/`**（可选分享 / 同步后端）：**闭源专有**（见 `server/LICENSE`），作为可选的托管服务。
+
+开源策略为「开源获客、闭源变现」：核心引擎（CLI + 库）开源以便审计与自托管复用，Web 查看器以 GPL 保证衍生品同样开源，可选的分享 / 同步后端闭源并以托管服务形式商业化。
+
 ## 文档
 
 - `README.en.md`：English version.

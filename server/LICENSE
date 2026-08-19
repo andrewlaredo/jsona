@@ -4,5 +4,6 @@ This software is proprietary and closed source.
 
 You may not copy, modify, distribute, sublicense, or sell this software or
 its source code except with the express written permission of the copyright
-holder. The jsona web client (packages/web) remains MIT-licensed and operates
-fully without this server; this backend is an optional, opt-in service.
+holder. The jsona web client (packages/web) is GPL-3.0-or-later licensed and
+operates fully without this server; this backend is an optional, opt-in
+service.

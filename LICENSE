@@ -1,0 +1,28 @@
+jsona — License Overview
+==========================
+
+This repository uses a multi-license structure. Different parts of the project
+are released under different licenses, summarized below.
+
+| Path              | Component                              | License           |
+|-------------------|----------------------------------------|-------------------|
+| `packages/core`   | `jsona-core` — parse / serialize / graph / diff (zero-dep) | MIT        |
+| `packages/cli`    | `jsona-view` — the `jsona` CLI (query/format/minify/sort/diff/mcp/serve) | MIT |
+| `packages/web`    | Web viewer (React + Vite, fully offline-capable) | GPL-3.0-or-later |
+| `server/`         | Optional share / sync backend (Node + SQLite) | Proprietary / closed-source |
+
+The full text of each license is available at:
+- MIT:        https://opensource.org/license/mit
+- GPL-3.0:    https://www.gnu.org/licenses/gpl-3.0.html
+- Proprietary (server/): see `server/LICENSE`
+
+Commercial / proprietary licensing inquiries for the server backend:
+contact the jsona team.
+
+---
+
+Open-source strategy ("open-core"):
+The core engine (CLI + libraries) is MIT-licensed so developers can audit,
+self-host, and reuse it freely. The web viewer is GPL-3.0 so derivative web
+products also stay open. The optional share/sync server is closed-source and
+monetized as a hosted service.
