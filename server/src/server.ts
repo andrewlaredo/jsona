@@ -399,6 +399,38 @@ app.get('/api/health', (_req, res) =>
   }),
 );
 
+// --- SEO: robots.txt + sitemap.xml (helps Google and other engines index) ---
+// The site is a SPA whose only stable, crawlable entry point is the home page.
+// Dynamic share short-links (/s/:id) are user-generated and JS-rendered, so they
+// are excluded from the sitemap and disallowed in robots.txt.
+//
+// Extra crawlable paths can be declared via SITEMAP_PATHS (comma-separated,
+// leading slash required), e.g. SITEMAP_PATHS=/,/docs,/features
+const BASE_URL = PUBLIC_URL.replace(/\/+$/, '');
+const SITEMAP_PATHS = (process.env.SITEMAP_PATHS || '/')
+  .split(',')
+  .map((p) => p.trim())
+  .filter(Boolean)
+  .map((p) => (p.startsWith('/') ? p : `/${p}`));
+
+app.get('/robots.txt', (_req, res) => {
+  res.type('text/plain; charset=utf-8');
+  res.send(
+    [`User-agent: *`, `Disallow: /s/`, `Disallow: /api/`, ``, `Sitemap: ${BASE_URL}/sitemap.xml`].join('\n'),
+  );
+});
+
+app.get('/sitemap.xml', (_req, res) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = SITEMAP_PATHS.map(
+    (p) =>
+      `  <url>\n    <loc>${BASE_URL}${p === '/' ? '' : p}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${p === '/' ? '1.0' : '0.6'}</priority>\n  </url>`,
+  ).join('\n');
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  res.type('application/xml; charset=utf-8');
+  res.send(xml);
+});
+
 // Log unexpected failures without leaking internals to the caller.
 app.use((err: Error, req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error(`[error] ${req.method} ${req.path}:`, err.message);

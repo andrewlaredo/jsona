@@ -76,6 +76,27 @@ docker run -d -p 8787:8787 \
 The SQLite DB persists in `/app/data` (mount a volume). Add `-e TRUST_PROXY=1`
 when running behind a reverse proxy so per-IP limits see the real client address.
 
+## SEO (robots.txt + sitemap.xml)
+The server serves `/robots.txt` and `/sitemap.xml` for search-engine indexing.
+Both are derived from `PUBLIC_URL`, so set it to your real domain:
+
+```
+-e PUBLIC_URL=https://www.jsona.cn
+```
+
+- `/robots.txt` disallows `/s/` (dynamic share links) and `/api/`, and points
+  crawlers at the sitemap.
+- `/sitemap.xml` lists the site's stable, crawlable paths. By default only the
+  home page `/` is included. To add more crawlable paths (e.g. docs/features
+  pages), set `SITEMAP_PATHS` as a comma-separated list:
+
+```
+-e SITEMAP_PATHS=/,/docs,/features
+```
+
+Submit `https://www.jsona.cn/sitemap.xml` in Google Search Console.
+
+
 ## Connecting the web client
 Set `VITE_API_BASE` in `packages/web/.env` to the server's base URL (e.g.
 `https://share.example.com`). The web client then shows the "server short link"
