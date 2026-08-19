@@ -72,7 +72,11 @@ export async function buildServerShareUrl(
   payload: SharePayload,
   opts: ServerShareOpts = {},
 ): Promise<string> {
-  const apiBase = opts.apiBase || (typeof window !== 'undefined' && (window as any).JSONA_API) || '';
+  const apiBase =
+    opts.apiBase ||
+    (typeof window !== 'undefined' && (window as any).JSONA_API) ||
+    apiBaseUrl() ||
+    '';
   if (!apiBase) throw new Error('no server configured');
   const res = await fetch(`${apiBase}/api/share`, {
     method: 'POST',
